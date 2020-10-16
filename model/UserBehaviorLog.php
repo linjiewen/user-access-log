@@ -9,7 +9,7 @@ use Yii;
  *
  * @property string $id
  * @property string $user_id 用户ID
- * @property int $is_trash 类型：1=>用户端，2=>管理员端
+ * @property int $type 类型：1=>用户端，2=>管理员端
  * @property string $absolute_url 完整路由
  * @property string $module 模块
  * @property string $controller 控制器
@@ -42,7 +42,7 @@ class UserBehaviorLog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'user_id', 'is_trash'], 'integer', 'min' => 0],
+            [['id', 'user_id', 'type'], 'integer', 'min' => 0],
             [['headers', 'params', 'body'], 'required'],
             [['headers', 'params', 'body'], 'string'],
             [['created_at'], 'datetime', 'format' => 'yyyy-MM-dd HH:mm:ss'],
@@ -52,7 +52,7 @@ class UserBehaviorLog extends \yii\db\ActiveRecord
             [['method'], 'string', 'max' => 8],
             [['request_ip'], 'string', 'max' => 16],
             [['user_id'], 'default', 'value' => 0],
-            [['is_trash'], 'default', 'value' => 1],
+            [['type'], 'default', 'value' => 1],
             [['absolute_url', 'module', 'controller', 'action', 'route', 'method', 'user_agent', 'origin', 'host', 'headers', 'params', 'body', 'authorization', 'request_ip'], 'default', 'value' => ''],
         ];
     }
@@ -65,7 +65,7 @@ class UserBehaviorLog extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', '用户ID'),
-            'is_trash' => Yii::t('app', '类型：1=>用户端，2=>管理员端'),
+            'type' => Yii::t('app', '类型：1=>用户端，2=>管理员端'),
             'absolute_url' => Yii::t('app', '完整路由'),
             'module' => Yii::t('app', '模块'),
             'controller' => Yii::t('app', '控制器'),

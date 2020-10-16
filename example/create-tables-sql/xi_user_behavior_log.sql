@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `xi_user_behavior_log`;
 CREATE TABLE `xi_user_behavior_log`  (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '用户ID',
-  `is_trash` tinyint(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '类型：1=>用户端，2=>管理员端',
+  `type` tinyint(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '类型：1=>用户端，2=>管理员端',
   `absolute_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '完整路由',
   `module` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '模块',
   `controller` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '控制器',
