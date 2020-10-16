@@ -1,0 +1,22 @@
+{
+    "name": "yii-component/user-access-log",
+    "keywords": ["yii2", "log", "user access log"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "ljw",
+            "email": "576006908@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+
+    },
+    "autoload":{
+        "psr-4":{
+            "yiiComponent\\accessLog\\":"./src/"
+        }
+    }
+}
